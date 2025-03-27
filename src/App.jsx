@@ -144,21 +144,21 @@ export default function App() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 max-w-5xl mx-auto">
             {[{
               title: "Expense Tracker",
-              desc: "Comprehensive expense tracking with user authentication",
+              desc: "This is an expense tracker where there are three tabs(dashboard,income & expense) and the users can keep a track of their daily income and expense with a final total balance.(Note:Kindly wait a minute for the web page to load to its optimum function)",
               link: "https://better-tracker.vercel.app/",
               tags: ["ReactJS", "NodeJS"],
               color: "border-red-600"
             },
             {
-              title: "Weather App",
-              desc: "Real-time weather data using OpenWeather API",
-              link: "https://kishalay15.github.io/Weather-App/",
-              tags: ["JavaScript", "API"],
+              title: "Drag and Drop to do list",
+              desc: "This is a TO DO List where there are four columns(To Do,Doing, Done, Trash)with a Drag and Drop feature to shift the position of task between the columns as it progresses making its function easier and less time consuming.",
+              link: "https://github.com/Kishalay15/Drag-and-drop-Todo",
+              tags: ["CSS"],
               color: "border-blue-600"
             },
             {
               title: "Simple Expense Tracker",
-              desc: "Transaction tracking without user login",
+              desc: "This is an expense tracker with tabs to input any transaction(income/expense) with their title and it also provides a final balance of the account(Note:Kindly wait a minute for the web page to load to its optimum function)",
               link: "https://expense-tracker-backend-coyb.onrender.com/",
               tags: ["JavaScript", "MongoDB"],
               color: "border-green-600"
