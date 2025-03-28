@@ -53,14 +53,14 @@ export default function App() {
 
           <div className="flex gap-6 justify-center items-center">
             <a
-              href="https://github.com/Kishalay15"
+              href="https://github.com/Kishalay15/"
               target="_blank"
               className="bg-gray-800 p-3 rounded-full hover:bg-purple-600 transition-all transform hover:scale-110"
             >
               <GithubIcon size={24} />
             </a>
             <a
-              href="https://www.linkedin.com/in/kishalay-lahiri"
+              href="https://www.linkedin.com/in/kishalay-lahiri-5b1366265/"
               target="_blank"
               className="bg-gray-800 p-3 rounded-full hover:bg-blue-600 transition-all transform hover:scale-110"
             >
