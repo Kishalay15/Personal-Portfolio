@@ -10,6 +10,7 @@ export default function Navbar() {
         { name: "Projects", href: "#projects" },
         { name: "Skills", href: "#skills" },
         { name: "Experience & Education", href: "#experience" },
+        { name: "Resume", href: "/My_main_Resume.pdf", download: true },
     ];
 
     return (
@@ -18,12 +19,16 @@ export default function Navbar() {
                 <div className="text-2xl font-bold text-[#111827]">Kishalay Lahiri</div>
 
                 {/* Desktop Links */}
-                <div className="hidden md:flex gap-8">
+                <div className="hidden md:flex items-center gap-8">
                     {links.map((link, idx) => (
                         <a
                             key={idx}
                             href={link.href}
-                            className="text-gray-700 hover:text-blue-500 transition-colors font-medium"
+                            download={link.download}
+                            className={`font-medium transition-colors ${link.name === "Resume"
+                                ? "bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+                                : "text-gray-700 hover:text-blue-500"
+                                }`}
                         >
                             {link.name}
                         </a>
@@ -53,7 +58,11 @@ export default function Navbar() {
                                 <a
                                     key={idx}
                                     href={link.href}
-                                    className="text-gray-700 hover:text-blue-500 transition-colors font-medium"
+                                    download={link.download}
+                                    className={`font-medium transition-colors ${link.name === "Resume"
+                                        ? "bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+                                        : "text-gray-700 hover:text-blue-500"
+                                        }`}
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.name}
