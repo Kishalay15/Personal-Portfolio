@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,12 +14,24 @@ export default function Navbar() {
         { name: "Resume", href: "/My_main_Resume.pdf", download: true },
     ];
 
-    return (
-        <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-            <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-                <div className="text-2xl font-bold text-[#111827]">Kishalay Lahiri</div>
+    const scrollToSection = (e, href) => {
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const element = document.querySelector(href);
+            if (element) {
+                window.scrollTo({
+                    top: element.offsetTop - 64,
+                    behavior: 'smooth'
+                });
+            }
+            if (isOpen) setIsOpen(false);
+        }
+    };
 
-                {/* Desktop Links */}
+    return (
+        <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 text-[#111827] dark:text-white shadow-md z-50">
+            <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+                <div className="text-2xl font-bold text-[#111827] dark:text-white">Kishalay Lahiri</div>
                 <div className="hidden md:flex items-center gap-8">
                     {links.map((link, idx) => (
                         <a
@@ -27,31 +40,32 @@ export default function Navbar() {
                             download={link.download}
                             className={`font-medium transition-colors ${link.name === "Resume"
                                 ? "bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
-                                : "text-gray-700 hover:text-blue-500"
+                                : "text-[#111827] dark:text-white hover:text-blue-500"
                                 }`}
+                            onClick={(e) => link.download ? null : scrollToSection(e, link.href)}
                         >
                             {link.name}
                         </a>
                     ))}
+                    <ThemeToggle />
                 </div>
-
-                {/* Mobile Menu Button */}
-                <button
-                    className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-500"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X size={28} /> : <Menu size={28} />}
-                </button>
+                <div className="md:hidden flex items-center gap-4">
+                    <ThemeToggle />
+                    <button
+                        className="p-2 rounded-md text-[#111827] dark:text-white hover:text-blue-500"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        {isOpen ? <X size={28} /> : <Menu size={28} />}
+                    </button>
+                </div>
             </div>
-
-            {/* Mobile Links */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
                         initial={{ height: 0 }}
                         animate={{ height: "auto" }}
                         exit={{ height: 0 }}
-                        className="md:hidden bg-white overflow-hidden"
+                        className="md:hidden bg-white dark:bg-gray-900 text-[#111827] dark:text-white overflow-hidden"
                     >
                         <div className="flex flex-col gap-4 py-4 px-4">
                             {links.map((link, idx) => (
@@ -61,9 +75,9 @@ export default function Navbar() {
                                     download={link.download}
                                     className={`font-medium transition-colors ${link.name === "Resume"
                                         ? "bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
-                                        : "text-gray-700 hover:text-blue-500"
+                                        : "text-[#111827] dark:text-white hover:text-blue-500"
                                         }`}
-                                    onClick={() => setIsOpen(false)}
+                                    onClick={(e) => link.download ? null : scrollToSection(e, link.href)}
                                 >
                                     {link.name}
                                 </a>
