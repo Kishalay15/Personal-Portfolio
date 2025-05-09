@@ -460,7 +460,7 @@ export default function App() {
               </div>
               <div className="flex flex-col gap-4">
                 <p className="text-gray-600 dark:text-gray-300">
-                  I'm currently seeking internship or fulltime opportunities in full-stack or back-end development. Feel free to reach out if you think I'd be a good fit for your team!
+                  I'm actively seeking internship or full-time opportunities in full-stack or back-end development. If you're looking for someone with my skill set, let's connect!
                 </p>
                 <div className="mt-4">
                   <a
