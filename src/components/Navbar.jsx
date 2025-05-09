@@ -1,32 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import { scrollToSection } from "../utils/helper";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrollProgress, setScrollProgress] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const currentScroll = window.scrollY;
+            const progress = (currentScroll / totalScroll) * 100;
+            setScrollProgress(progress);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const links = [
         { name: "Home", href: "#home" },
+        { name: "About", href: "#about" },
         { name: "Projects", href: "#projects" },
         { name: "Skills", href: "#skills" },
         { name: "Experience & Education", href: "#experience" },
+        { name: "Contact", href: "#contact" },
         { name: "Resume", href: "/My_main_Resume.pdf", download: true },
     ];
 
-    const scrollToSection = (e, href) => {
-        if (href.startsWith('#')) {
-            e.preventDefault();
-            const element = document.querySelector(href);
-            if (element) {
-                window.scrollTo({
-                    top: element.offsetTop - 64,
-                    behavior: 'smooth'
-                });
-            }
-            if (isOpen) setIsOpen(false);
-        }
-    };
+    // const scrollToSection = (e, href) => {
+    //     if (href.startsWith('#')) {
+    //         e.preventDefault();
+    //         const element = document.querySelector(href);
+    //         if (element) {
+    //             window.scrollTo({
+    //                 top: element.offsetTop - 64,
+    //                 behavior: 'smooth'
+    //             });
+    //         }
+    //         if (isOpen) setIsOpen(false);
+    //     }
+    // };
 
     return (
         <nav className="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 text-[#111827] dark:text-white shadow-md z-50">
@@ -86,6 +102,10 @@ export default function Navbar() {
                     </motion.div>
                 )}
             </AnimatePresence>
+            <div
+                className="h-1 bg-blue-500"
+                style={{ width: `${scrollProgress}%` }}
+            ></div>
         </nav>
     );
 }
