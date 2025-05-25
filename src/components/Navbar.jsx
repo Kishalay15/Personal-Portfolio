@@ -27,7 +27,7 @@ export default function Navbar() {
         { name: "Skills", href: "#skills" },
         { name: "Experience & Education", href: "#experience" },
         { name: "Contact", href: "#contact" },
-        { name: "Resume", href: "/My_main_Resume-1.pdf", download: true },
+        { name: "Resume", href: "/My_main_Resume-2.pdf", download: true },
     ];
 
     // const scrollToSection = (e, href) => {
