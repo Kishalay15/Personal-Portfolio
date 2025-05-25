@@ -464,7 +464,7 @@ export default function App() {
                 </p>
                 <div className="mt-4">
                   <a
-                    href="/My_main_Resume.pdf"
+                    href="/My_main_Resume-1.pdf"
                     download
                     className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-md transition-colors inline-flex items-center gap-2"
                   >
