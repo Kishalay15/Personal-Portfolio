@@ -202,10 +202,10 @@ export default function App() {
                   tags: ["MongoDB", "Express", "ReactJS", "NodeJS"],
                 },
                 {
-                  title: "Drag and Drop To-Do List",
-                  desc: "A To-Do app with four columns (To Do, Doing, Done, Trash) featuring drag-and-drop functionality for seamless task management.",
-                  link: "https://github.com/Kishalay15/Drag-and-drop-Todo",
-                  tags: ["CSS"],
+                  title: "Study Tracker App",
+                  desc: "Exam Study Tracker is a responsive web application designed to help students effectively organize and monitor their exam preparation. It allows users to add subjects, topics, and subtopics, and track their completion status with visual progress indicators.",
+                  link: "https://study-tracker-mauve-rho.vercel.app/",
+                  tags: ["ReactJs", "TypeScript", "TailwindCSS"],
                 },
                 {
                   title: "Simple TODO App",
