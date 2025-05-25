@@ -337,7 +337,7 @@ export default function App() {
             <div className="mt-12 text-center max-w-3xl mx-auto">
               <h3 className="text-xl font-bold text-indigo-500 mb-4">Currently Learning</h3>
               <div className="flex flex-wrap justify-center gap-3">
-                {["TypeScript", "Next.js", "FastAPI", "AWS", "Spring Boot"].map((skill, idx) => (
+                {["TypeScript", "PostgreSQL", "FastAPI", "DevOps", "Spring Boot"].map((skill, idx) => (
                   <span
                     key={idx}
                     className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-200 px-3 py-1 rounded-full text-sm"
