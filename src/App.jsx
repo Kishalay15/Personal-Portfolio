@@ -202,10 +202,10 @@ export default function App() {
                   tags: ["MongoDB", "Express", "ReactJS", "NodeJS"],
                 },
                 {
-                  title: "Study Tracker App",
-                  desc: "Exam Study Tracker is a responsive web application designed to help students effectively organize and monitor their exam preparation. It allows users to add subjects, topics, and subtopics, and track their completion status with visual progress indicators.",
-                  link: "https://study-tracker-mauve-rho.vercel.app/",
-                  tags: ["ReactJs", "TypeScript", "TailwindCSS"],
+                  title: "Blogging Application",
+                  desc: "This is a userfriendly and easy to use blog application, where you can view posts, make an account, create blogs, comment on other’s blogs. Made using Spring boot and ReactJs ",
+                  link: "https://github.com/Kishalay15/spring-boot-blog",
+                  tags: ["ReactJs", "Spring Boot", "TailwindCSS"],
                 },
                 {
                   title: "Simple TODO App",
@@ -464,7 +464,7 @@ export default function App() {
                 </p>
                 <div className="mt-4">
                   <a
-                    href="/My_main_Resume-2.pdf"
+                    href="/My_main_Resume-3.pdf"
                     download
                     className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-md transition-colors inline-flex items-center gap-2"
                   >
