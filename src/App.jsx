@@ -203,7 +203,7 @@ export default function App() {
                 },
                 {
                   title: "Blogging Application",
-                  desc: "This is a userfriendly and easy to use blog application, where you can view posts, make an account, create blogs, comment on other’s blogs. Made using Spring boot and ReactJs ",
+                  desc: "Built a full-stack blog app with React and Spring Boot featuring JWT auth, profile editing with password validation, post creation, and comment management.",
                   link: "https://github.com/Kishalay15/spring-boot-blog",
                   tags: ["ReactJs", "Spring Boot", "TailwindCSS"],
                 },
