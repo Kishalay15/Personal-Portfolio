@@ -29,12 +29,32 @@ export default function App() {
     }
   };
 
-  const getBadgeColor = (exp) => {
-    if (exp.includes("3+")) return "bg-indigo-500/80";
-    if (exp.includes("2+")) return "bg-indigo-600/70";
-    if (exp.includes("1.5+")) return "bg-indigo-700/70";
-    if (exp.includes("1+")) return "bg-indigo-800/70";
-    return "bg-indigo-900/70";
+  // Dynamic color mapping for different technologies
+  const getTechColor = (techName) => {
+    const colorMap = {
+      // Frontend Technologies
+      "HTML": "bg-orange-500/80 hover:bg-orange-600/80",
+      "CSS": "bg-blue-500/80 hover:bg-blue-600/80",
+      "Tailwind CSS": "bg-cyan-500/80 hover:bg-cyan-600/80",
+      "React": "bg-sky-500/80 hover:bg-sky-600/80",
+
+      // Backend Technologies
+      "Java": "bg-red-600/80 hover:bg-red-700/80",
+      "NodeJs": "bg-green-600/80 hover:bg-green-700/80",
+      "Spring Boot": "bg-emerald-600/80 hover:bg-emerald-700/80",
+      "Express": "bg-gray-700/80 hover:bg-gray-800/80",
+      "JavaScript": "bg-yellow-500/80 hover:bg-yellow-600/80",
+      "MongoDB": "bg-green-500/80 hover:bg-green-600/80",
+      "TypeScript": "bg-blue-600/80 hover:bg-blue-700/80",
+      "MySQL": "bg-orange-600/80 hover:bg-orange-700/80",
+
+      // Other Tools
+      "Git": "bg-orange-500/80 hover:bg-orange-600/80",
+      "Python": "bg-blue-500/80 hover:bg-blue-600/80",
+      "Firebase": "bg-yellow-600/80 hover:bg-yellow-700/80",
+    };
+
+    return colorMap[techName] || "bg-indigo-500/80 hover:bg-indigo-600/80";
   };
 
   const itemVariants = {
@@ -208,10 +228,10 @@ export default function App() {
                   tags: ["ReactJs", "Spring Boot", "TailwindCSS"],
                 },
                 {
-                  title: "Simple TODO App",
-                  desc: "A lightweight, responsive TODO application built with React that stores your tasks in the browser using localStorage. No backend required. Ideal for personal task management in a privacy-first way.",
-                  link: "https://react-todo-mu-gules.vercel.app/",
-                  tags: ["ReactJS", "JavaScript"],
+                  title: "Notey",
+                  desc: "A lightweight, responsive note taking application built with React and TypeScript that stores your tasks in localStorage. It supports writing in markdown format, can be installed as an application and also supports rich text writing",
+                  link: "https://notes-self-one.vercel.app/",
+                  tags: ["ReactJS", "TypeScript"],
                 },
               ].map((project, idx) => (
                 <div
@@ -252,98 +272,88 @@ export default function App() {
             variants={itemVariants}
             className="py-16 my-12 rounded-3xl border border-gray-200 shadow-md bg-white dark:bg-gray-800 dark:border-gray-700 w-full"
           >
-            <h2 className="text-4xl font-bold mb-8 text-center text-indigo-400 flex items-center justify-center gap-4">
+            <h2 className="text-4xl font-bold mb-12 text-center text-indigo-400 flex items-center justify-center gap-4">
               <Award className="text-indigo-500" />
               Skills
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-0 px-4 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 px-4 max-w-5xl mx-auto">
               {[
                 {
                   category: "Frontend",
                   skills: [
-                    { name: "HTML", experience: "3+ years" },
-                    { name: "CSS", experience: "3+ years" },
-                    { name: "Tailwind CSS", experience: "1.5+ years" },
-                    { name: "ReactJS", experience: "1.5+ years" },
+                    { name: "HTML", logo: "/icons8-html.svg" },
+                    { name: "CSS", logo: "/icons8-css.svg" },
+                    { name: "Tailwind CSS", logo: "/icons8-tailwindcss.svg" },
+                    { name: "React", logo: "/icons8-react.svg" },
                   ],
                 },
                 {
                   category: "Backend",
                   skills: [
-                    { name: "Java", experience: "2+ year" },
-                    { name: "NodeJs", experience: "2+ years" },
-                    { name: "Spring Boot", experience: "1+ year" },
-                    { name: "Express", experience: "1.5+ years" },
-                    { name: "JavaScript", experience: "2+ years" },
-                    { name: "MongoDB", experience: "1+ year" },
-                    { name: "TypeScript", experience: "3 months" },
-                    { name: "MySQL", experience: "2+ years" },
+                    { name: "Java", logo: "icons8-java.svg" },
+                    { name: "NodeJs", logo: "icons8-nodejs.svg" },
+                    { name: "Spring Boot", logo: "/icons8-spring-boot.svg" },
+                    { name: "Express", logo: "/icons8-express-js.svg" },
+                    { name: "JavaScript", logo: "/icons8-javascript.svg" },
+                    { name: "MongoDB", logo: "/icons8-mongodb.svg" },
+                    { name: "TypeScript", logo: "/icons8-typescript.svg" },
+                    { name: "MySQL", logo: "/icons8-mysql-logo.svg" },
                   ],
                 },
                 {
                   category: "Other Tools",
                   skills: [
-                    { name: "Git", experience: "2+ years" },
-                    { name: "SQL", experience: "2+ years" },
-                    { name: "Python", experience: "3+ years" },
-                    { name: "AI/ML", experience: "1 year" },
+                    { name: "Git", logo: "/icons8-git.svg" },
+                    { name: "Python", logo: "/icons8-python.svg" },
+                    { name: "Firebase", logo: "/icons8-firebase.svg" },
                   ],
                 },
               ].map((group, idx) => (
-                <div
-                  key={idx}
-                  className="border-t border-gray-200 dark:border-gray-700 p-6"
-                >
-                  <h3 className="text-2xl font-bold text-indigo-500 mb-6 pl-2">
+                <div key={idx} className="flex flex-col items-center">
+                  <h3 className="text-2xl font-bold text-indigo-500 mb-6">
                     {group.category}
                   </h3>
-
-                  {/* Backend */}
-                  {group.category === "Backend" ? (
-                    <div className="grid grid-cols-2 gap-2">
-                      {group.skills.map((skill, idx) => (
-                        <div
-                          key={idx}
-                          className={`flex flex-col items-center justify-center ${getBadgeColor(skill.experience)}
-                  text-white rounded-lg p-2 text-center h-full`}
-                        >
-                          <span className="font-medium text-sm">{skill.name}</span>
-                          <span className="text-xs bg-black/20 px-2 py-0.5 rounded-full mt-1">
-                            {skill.experience}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="flex flex-col space-y-4">
-                      {group.skills.map((skill, idx) => (
-                        <div
-                          key={idx}
-                          className={`flex items-center justify-between ${getBadgeColor(skill.experience)}
-                  text-white rounded-lg px-4 py-2`}
-                        >
-                          <span className="font-medium">{skill.name}</span>
-                          <span className="text-xs bg-black/20 px-2 py-0.5 rounded-md">
-                            {skill.experience}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                  <div className="grid grid-cols-3 gap-4 w-full">
+                    {group.skills.map((skill, idx) => (
+                      <motion.div
+                        key={idx}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        className="flex flex-col items-center p-2"
+                      >
+                        <img
+                          src={skill.logo}
+                          alt={skill.name}
+                          className="w-16 h-16 object-contain hover:scale-110 transition-transform"
+                          title={skill.name}
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
-            <div className="mt-12 text-center max-w-3xl mx-auto">
-              <h3 className="text-xl font-bold text-indigo-500 mb-4">Currently Learning</h3>
-              <div className="flex flex-wrap justify-center gap-3">
-                {["TypeScript", "PostgreSQL", "FastAPI", "DevOps", "Spring Boot"].map((skill, idx) => (
-                  <span
+
+            <div className="mt-16 text-center max-w-3xl mx-auto">
+              <h3 className="text-xl font-bold text-indigo-500 mb-6">Currently Learning</h3>
+              <div className="flex flex-wrap justify-center gap-6">
+                {[
+                  { name: "PostgreSQL", logo: "/icons8-postgresql.svg" },
+                  { name: "FastAPI", logo: "/12557196_fastapi_api_icon.svg" },
+                ].map((skill, idx) => (
+                  <motion.div
                     key={idx}
-                    className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-200 px-3 py-1 rounded-full text-sm"
+                    whileHover={{ scale: 1.1 }}
+                    className="flex flex-col items-center"
                   >
-                    {skill}
-                  </span>
+                    <img
+                      src={skill.logo}
+                      alt={skill.name}
+                      className="w-14 h-14 object-contain"
+                      title={skill.name}
+                    />
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -369,11 +379,17 @@ export default function App() {
                     desc: "Collaborated on web projects, solving real-world challenges."
                   },
                   {
-                    title: "Web Developer",
-                    company: "Prodigy Infotech",
-                    period: "May 2024 - June 2024",
-                    desc: "Developed responsive web interfaces and maintained version control."
+                    title: "Full Stack Developer Intern",
+                    company: "Lit Amor",
+                    period: "July 2025 - Present",
+                    desc: "Team lead for building core features of an upcoming dating-based social media platform"
                   }
+                  // {
+                  //   title: "Web Developer Fellowship",
+                  //   company: "Keploy",
+                  //   period: "June 2025",
+                  //   desc: "Learned about CI/CD pipelines, preparing test cases and how to test an application to its limits, to find bugs and probable improvements"
+                  // }
                 ].map((exp, idx) => (
                   <div
                     key={idx}
