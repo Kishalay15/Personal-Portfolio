@@ -229,7 +229,7 @@ export default function App() {
                 },
                 {
                   title: "Notey",
-                  desc: "A lightweight, responsive note taking application built with React and TypeScript that stores your tasks in localStorage. It supports writing in markdown format, can be installed as an application and also supports rich text writing",
+                  desc: "A lightweight, responsive note taking application built with React and TypeScript that stores your tasks in local storage. It supports writing in markdown format, can be installed as an application and also supports rich text writing",
                   link: "https://notes-self-one.vercel.app/",
                   tags: ["ReactJS", "TypeScript"],
                 },
